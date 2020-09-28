@@ -1,2 +1,2 @@
 # shelter
-Deploy: https://archylex.github.io/shelter/shelter/pages/main.html
+Deploy: https://archylex.github.io/shelter/shelter/pages/main/main.html
