@@ -137,7 +137,25 @@ body {
     border-bottom: solid 3px var(--color-primary);
 }
 
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 30px;  
+    margin-top: 10px;
+    margin-left: 41px;
+}
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    margin-bottom: 8px;
+}
+
 .friends {
+    display: flex;
     width: 100%;    
     background: var(--color-light-l);
 }
@@ -164,24 +182,13 @@ body {
     flex-direction: column;
     width: 100%;
     margin-top: 60px;
-    margin-bottom: 60px;
-}
-
-.friends-row {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;    
     margin-bottom: 30px;
-}
-
-.friends-row:last-child {
-    margin-bottom: 0;
 }
 
 .friends-view {
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -193,6 +200,7 @@ body {
     width: 270px;
     height: 435px;
     border-radius: 9px;
+    margin-bottom: 30px;
     background: var(--color-light-s);
 }
 
@@ -307,6 +315,11 @@ h4.disabled {
     justify-content: space-between;
 }
 
+.footer-info {
+    display: flex;        
+    width: auto;
+}
+
 .footer-title {
     width: 302px;
     font-family: var(--font-g);
@@ -319,13 +332,13 @@ h4.disabled {
 }
 
 .footer-info-block {
-    margin-top: 57px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
 }
 
 .footer-info-block2 {
-    position: relative;
-    left: -20px;
-    top: 1px;
+    margin-left: 77px;
 }
 
 .footer-info-block-item {
@@ -357,10 +370,11 @@ h4.disabled {
 }
 
 .footer-image {
+    display: flex;
     margin-top: 40px;
-    width: 300px;
-    height: 310px;
-    margin-bottom: 0;
+    width: 300px;   
+    height: 310px;    
+    margin-bottom: 0;    
 }
 
 a {
@@ -428,3 +442,235 @@ h5 {
     color: var(--color-dark-l);
 }
 
+img {
+    width: 100%;
+}
+
+@media screen and (max-width: 1279px) {
+    .wrapper {
+        max-width: 708px;   
+    }
+
+    .wrapper-friends {
+        margin-bottom: 75px;
+    }
+
+    .friends-grid {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .friends-view {
+        display: flex;
+        width: 580px;
+        height: 1365px;
+        justify-content: space-between;
+        overflow-y: hidden;
+    }
+
+    .wrapper-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        display: flex;
+        width: 708px;
+        justify-content: center;        
+    }
+    
+    .footer-info-block {
+        display: flex;
+        flex-direction: column;
+        width: 278px;
+        margin-top: 33px;        
+    }
+
+    .footer-info-block2 {
+        display: flex;
+        flex-direction: column;
+        width: 302px;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        margin-left: 60px;     
+        margin-top: 33px;   
+        align-items: center;
+    }
+
+    .footer-block-text {
+        width: auto;
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+    }
+
+    .footer-info-block-item {
+        width: auto;
+        top: 0;
+    }
+
+    .footer-info-block-item2 {
+        width: auto;
+        top: 0;
+        margin-top: 33px;
+    }
+
+    .footer-info-block-item3 {
+        width: auto;
+        margin-top: 33px;        
+        align-self: start;
+    }
+    
+    .footer-block-icon {
+        width: 42px;
+        height: 32px;
+    }
+
+    .fbi3 {
+        width: 22px;
+        margin-right: 20px;
+    }
+
+    .footer-image {
+        width: 300px;
+        height: 310px;
+        margin-top: 65px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .burger {
+        display: flex;
+    }
+
+    .wrapper {
+        width: 300px;   
+        justify-content: left;
+    }
+
+    .header-menu {
+        display: none;
+    }
+
+    .friends {
+        width: 100vw;
+    }
+
+    .friends-grid {
+        margin-top: 44px;
+    }
+
+    .friends-view {
+        display: flex;
+        width: 270px;
+        height: 1365px;
+        justify-content: center;
+        overflow-y: hidden;
+    }
+
+    .friends-title {
+        width: 100%;
+        font-family: var(--font-g);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 130%;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        letter-spacing: 0.06em;
+    }
+
+    .friends-slider-button {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .footer-info {
+        width: 300px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-title {
+        width: 83%;
+        text-align: center;
+        margin-right: 0px;
+        margin-left: 0px;
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 130%;
+        letter-spacing: 0.06em;        
+    }
+
+    .footer-info-block {
+        display: flex;
+        flex-direction: column;
+        width: 278px;
+        margin-top: 31px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-info-block2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        margin-left: 0;
+        margin-top: 40px;
+        align-items: center;
+    }
+
+    .footer-block-text {
+        width: auto;
+        font-family: Georgia;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 115%;
+        letter-spacing: 0.06em;
+    }
+
+    .footer-info-block-item {
+        width: auto;
+        top: 0;
+    }
+
+    .footer-info-block-item2 {
+        width: auto;
+        top: 0;
+    }
+
+    .footer-info-block-item3 {
+        width: auto;
+        margin-top: 40px;        
+        align-self: start;
+    }
+    
+    .footer-block-icon {
+        width: 42px;
+        height: 32px;
+    }
+
+    .fbi3 {
+        width: 22px;
+        margin-right: 20px;
+    }
+
+    .footer-image {
+        width: 260px;
+        height: 269px;
+    }
+
+    
+}
