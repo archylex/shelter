@@ -71,7 +71,8 @@ class PopUp {
 
         this.fragment.appendChild(popInfo);
                
-        this.info = petInfo;
+        if (petInfo)
+            this.info = petInfo;
         
         this.hide();
     }

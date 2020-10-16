@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {        
-    const popup = new PopUp(json[0]);
+    const url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';    
+    let json;    
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);  
+            json = data;
+        })
+        .catch(err => { throw err });
+    
+    const popup = new PopUp();
     const divPopup = document.querySelector('.popup');
     const cards = document.querySelectorAll('.friends-slider-card');
     const bg = document.querySelector('.tint-background');    
@@ -19,17 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bg.addEventListener("click", bgClick, false);
     bg.addEventListener("mouseover", bgHover, false);
 
-    divPopup.appendChild(popup.fragment);
-
-    let json;
-    const url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            json = JSON.parse(data);
-        })
-        .catch(err => { throw err });
+    divPopup.appendChild(popup.fragment);   
 
     cards.forEach(e => {
         e.addEventListener('click', () => {
