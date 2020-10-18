@@ -327,6 +327,45 @@ img {
     flex-wrap: wrap;    
     overflow: hidden;
     justify-content: center;
+
+    /* slider animation */
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.current_slide {
+    /*width: 990px;*/
+    height: 435px;
+    display: flex;
+    flex-direction: row;   
+    flex-wrap: wrap;    
+    /*margin-left: 90px;*/
+    justify-content: space-between;
+
+    position: absolute;
+    opacity: 0;
+    top:0;
+    width: 100%;
+    z-index: 100;
+
+    transition: transform .5s linear, opacity .5s, z-index .5s linear;
+}
+
+.current_slide.active {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.current_slide.prev {
+    transform: translateX(-100%);    
+    z-index: 800;
+}
+
+.current_slide.next {
+    transform: translateX(100%);    
+    z-index: 800;
 }
 
 .friends-slider-card {
@@ -337,7 +376,7 @@ img {
     width: 270px;
     height: 435px;
     border-radius: 9px;
-    margin-left: 90px;  
+    /*margin-left: 90px;  */
     background: var(--color-light-s);
 }
 
