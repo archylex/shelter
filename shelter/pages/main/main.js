@@ -1,18 +1,34 @@
 document.addEventListener("DOMContentLoaded", () => {        
-    const url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';    
     let json;    
-
+    const url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';        
+        
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            console.log(data);  
             json = data;
+            
+            const sliderClassInfo = {
+                frame: '.friends-slider-view',
+                current: '.current_slide',
+            }
+
+            const carousel = new Carousel(sliderClassInfo, data);
+            const sliderBtn = document.querySelectorAll('.friends-slider-button');
+            
+            sliderBtn[1].addEventListener('click', () => {
+                carousel.moveToNext();
+                updateCardListener()
+            });
+
+            sliderBtn[0].addEventListener('click', () => {
+                carousel.moveToPrev();
+                updateCardListener();
+            });
         })
         .catch(err => { throw err });
     
     const popup = new PopUp();
     const divPopup = document.querySelector('.popup');
-    const cards = document.querySelectorAll('.friends-slider-card');
     const bg = document.querySelector('.tint-background');    
 
     const bgClick = e => {   
@@ -27,24 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.unlightButton();        
     }
 
-    bg.addEventListener("click", bgClick, false);
-    bg.addEventListener("mouseover", bgHover, false);
+    bg.addEventListener('click', bgClick, false);
+    bg.addEventListener('mouseover', bgHover, false);
 
     divPopup.appendChild(popup.fragment);   
 
-    cards.forEach(e => {
-        e.addEventListener('click', () => {
-            const title = e.querySelector('h4');
-            
-            for(let pet of json) {        
-                if (pet.name === title.textContent) {                    
-                    popup.info = pet;
-                    popup.show();
+
+    const updateCardListener = () => {
+        const cards = document.querySelectorAll('.friends-slider-card');
+
+        cards.forEach(e => {
+            e.addEventListener('click', () => {
+                const title = e.querySelector('h4');
+                
+                for(let pet of json) {        
+                    if (pet.name === title.textContent) {                    
+                        popup.info = pet;
+                        popup.show();
+                    }
                 }
-            }
-        })
-    });   
-    
+            })
+        });   
+    }
+       
+    updateCardListener();
+   
     
     // phone burger
     const burgerScreen = document.querySelector('.burger-screen');    
