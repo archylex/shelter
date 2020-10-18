@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
             json = data;
             
             const sliderClassInfo = {
-                frame: '.friends-slider-view',
+                frame: '.carousel',
                 current: '.current_slide',
             }
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const popup = new PopUp();
     const divPopup = document.querySelector('.popup');
-    const bg = document.querySelector('.tint-background');    
+    const bg = document.querySelector('.tint-background');   
 
     const bgClick = e => {   
         if (e.target.className.includes('tint-background'))

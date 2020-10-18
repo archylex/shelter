@@ -15,10 +15,16 @@ class Carousel {
   }
 
   changeInfoCard(slide) {
+    let nums = [];
     for (let i = 0; i < 3; i++) {
       const cardImg = slide.children[i].children[0].children[0];    
       const cardTitle = slide.children[i].children[1];    
-      const idx = Math.floor(Math.random() * this.slide.info.length);
+      let idx = Math.floor(Math.random() * this.slide.info.length);
+      
+      while (nums.indexOf(idx) !== -1)
+        idx = Math.floor(Math.random() * this.slide.info.length);
+      
+      nums.push(idx);
 
       cardImg.setAttribute('src', this.slide.info[idx].img);
       cardTitle.textContent = this.slide.info[idx].name;
