@@ -625,7 +625,12 @@ img {
     cursor: url(../../assets/icons/cursor-hover.svg), auto;
 }
 
-#slder-card:hover {
+.slder-card {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.slder-card:hover {
     cursor: url(../../assets/icons/cursor-hover.svg), auto;
 }
 
@@ -758,12 +763,20 @@ img {
 
 .popup-image {
     width: 500px;
-    height: 500px;    
+    height: 500px;        
+}
+
+.popup-image img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
 }
 
 .popup-info {
     display: flex;
     flex-direction: column;
+    width: 351px;
     margin-top: 50px;
     margin-left: 29px;
 }
@@ -1443,7 +1456,8 @@ h5 {
 
     .popup {
         width: 240px;
-        height: 341px;
+        /*height: 341px;*/
+        height: auto;
     }
  
     .popup-image {
@@ -1470,6 +1484,23 @@ h5 {
         font-size: 13px;
     }
 
+    .burger-tint-screen {
+        display: none;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-color: rgba(41, 41, 41, 0.6);
+        z-index: 2000;
+        transition: all .5s;
+    }
+
+    .tint-screen-active {
+        display: flex;
+        opacity: 1;
+    }
 
     .burger-screen {
         display: flex;
@@ -1482,9 +1513,13 @@ h5 {
         height: 100vh;
         z-index: 3000;
         background-color: var(--color-dark-3xl);
-        transition: transform 0.5s;
+        transition: all 0.5s;
     }
 
+    .burger-header .burger {        
+        top: 15px;
+    }
+    
     .burger-show {
         transform: translateX(-320px);
         transition-duration: 0.5s;
@@ -1493,7 +1528,15 @@ h5 {
 
     .burger {
         position: relative;
-        margin-top: 42px;        
+        margin-top: 10px;        
+        transition: all .5s;        
+    }
+
+    .burger:hover {
+        cursor: url(../../assets/icons/cursor-hover.svg), auto;
+    }
+
+    .burger-icon-rotate {
         transform: rotate(90deg);
     }
 
@@ -1564,10 +1607,12 @@ h5 {
     .burger-menu-item-link-disbled {
         color: var(--color-dark-s);
         cursor: url(../../assets/icons/cursor-inactive.svg), auto;
+        pointer-events: none;
     }
     
     .burger-menu-item-link-disbled:hover {
         color: var(--color-dark-s);
         cursor: url(../../assets/icons/cursor-inactive.svg), auto;
+        pointer-events: none;
     }
 }

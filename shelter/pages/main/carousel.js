@@ -37,7 +37,7 @@ class Carousel {
 
     setTimeout(function(){
       that.slide.isMoving = false;
-    }, 500);
+    }, 1000);
   }
 
   constructor(classInfo, json) {

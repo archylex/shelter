@@ -88,9 +88,9 @@ class PopUp {
         this.domElement.breed.textContent = petInfo.breed;
         this.domElement.description.textContent = petInfo.description;
         this.domElement.age.innerHTML = '<strong>Age:</strong>&nbsp;' + petInfo.age;
-        this.domElement.inoculations.innerHTML = '<strong>Inoculations:</strong>&nbsp;' + petInfo.inoculations;
-        this.domElement.diseases.innerHTML = '<strong>Diseases:</strong>&nbsp;' + petInfo.diseases;
-        this.domElement.parasites.innerHTML = '<strong>Parasites:</strong>&nbsp;' + petInfo.parasites;
+        this.domElement.inoculations.innerHTML = '<strong>Inoculations:</strong>&nbsp;' + petInfo.inoculations.join(', ');
+        this.domElement.diseases.innerHTML = '<strong>Diseases:</strong>&nbsp;' + petInfo.diseases.join(', ');
+        this.domElement.parasites.innerHTML = '<strong>Parasites:</strong>&nbsp;' + petInfo.parasites.join(', ');
     }
 
     show() {
