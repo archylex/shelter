@@ -70,12 +70,45 @@ document.addEventListener("DOMContentLoaded", () => {
    
     
     // phone burger
+    const burgerTintScreen = document.querySelector('.burger-tint-screen');
     const burgerScreen = document.querySelector('.burger-screen');    
-    const burger = document.querySelector('.burger');    
-    burger.addEventListener('click', e => {
-        if (e.target.className.includes('burger-show'))
-            burgerScreen.classList.remove('burger-show');        
-        else
-            burgerScreen.classList.add('burger-show');        
+    const burgers = document.querySelectorAll('.burger');    
+
+    const showBurger = () => {
+        burgerTintScreen.classList.add('tint-screen-active');
+        burgerScreen.classList.add('burger-show'); 
+        burgers[0].classList.add('burger-icon-rotate');           
+        burgers[1].classList.add('burger-icon-rotate');          
+    }
+
+    const hideBurger = () => {
+        burgerTintScreen.classList.remove('tint-screen-active');
+        burgerScreen.classList.remove('burger-show');   
+        burgers[0].classList.remove('burger-icon-rotate');       
+        burgers[1].classList.remove('burger-icon-rotate');       
+    }
+
+    burgerScreen.addEventListener('click', e => {
+        if ( e.target.href !== undefined) {
+            if (e.target.href.includes('/index.html#'));
+                hideBurger();
+        }
+    });
+
+    burgers[0].addEventListener('click', () => {    
+        showBurger();
+    });
+
+    burgers[1].addEventListener('click', () => {    
+        hideBurger();
     })
+
+    burgerTintScreen.addEventListener('click', e => {
+        if (e.target.className.includes('tint-screen-active')) {
+            hideBurger();
+        } else {
+            showBurger();
+        }
+    })
+
 });

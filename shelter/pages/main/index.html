@@ -26,11 +26,11 @@
                             <li class="header-menu-item">
                                 <a class="header-menu-item-link header-menu-item-link-active" href="#">About the shelter</a></li>
                             <li class="header-menu-item">
-                                <a class="header-menu-item-link" href="#">Our pets</a></li>
+                                <a class="header-menu-item-link" href="../pets/index.html">Our pets</a></li>
                             <li class="header-menu-item">
-                                <a class="header-menu-item-link header-menu-item-link-disbled" href="#">Help the shelter</a></li>
+                                <a class="header-menu-item-link header-menu-item-link-disbled" href="/">Help the shelter</a></li>
                             <li class="header-menu-item">
-                                <a class="header-menu-item-link header-menu-item-link-disbled" href="#">Contacts</a></li>
+                                <a class="header-menu-item-link header-menu-item-link-disbled" href="/">Contacts</a></li>
                         </ul>
                     </nav>
                     <div class="burger">
@@ -48,7 +48,7 @@
                             <p class="hero-subtitle">
                                 We offer to give a chance to a little and nice puppy with an extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!
                             </p>
-                            <button type="button" class="hero-button">Make a friend</button>
+                            <button type="button" class="hero-button" onclick="location.href='../pets/index.html'">Make a friend</button>
                         </div>
                         <div class="hero-content-image">
                             <img src="../../assets/images/start_puppy.png" alt="start puppy">
@@ -94,7 +94,7 @@
                                 <div class="current_slide">
                                     <div class="friends-slider-card">
                                         <div class="friends-card-image">
-                                            <img id="slder-card" src="../../assets/images/katrine.png" alt="photo">
+                                            <img class="slder-card" src="../../assets/images/katrine.png" alt="photo">
                                         </div>  
                                         <h4 class="pets-card-title">Katrine</h4>
 
@@ -103,7 +103,7 @@
 
                                     <div class="friends-slider-card">
                                         <div class="friends-card-image">
-                                            <img id="slder-card" src="../../assets/images/jennifer.png" alt="photo">
+                                            <img class="slder-card" src="../../assets/images/jennifer.png" alt="photo">
                                         </div>  
                                         <h4 class="pets-card-title">Jennifer</h4>
 
@@ -112,7 +112,7 @@
 
                                     <div class="friends-slider-card">
                                         <div class="friends-card-image">
-                                            <img id="slder-card" src="../../assets/images/woody.png" alt="photo">
+                                            <img class="slder-card" src="../../assets/images/woody.png" alt="photo">
                                         </div>  
                                         <h4 class="pets-card-title">Woody</h4>
 
@@ -129,7 +129,7 @@
                         </button>
                     </div> 
                     
-                    <button type="button" class="friends-button">Get to know the rest</button>
+                    <button type="button" class="friends-button" onclick="location.href='../pets/index.html'">Get to know the rest</button>
                                    
                 </div>                   
             </div>
@@ -304,27 +304,35 @@
             </div>
         </div>
 
+        <div class="burger-tint-screen"></div>
+        
         <div class="burger-screen">
             <div class="burger-header">
                 <div class="burger-header-logo">
                     <p class="header-logo-title">Cozy House</p>
                     <p class="header-logo-subtitle">Shelter for pets in Boston</p>
                 </div>
-               
+
+                <div class="burger">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </div>
+            
             </div>
             <nav class="burger-menu">
                 <ul class="burger-menu-list">
                     <li class="burger-menu-item">
                         <a class="burger-menu-item-link burger-menu-item-link-active" href="#">About the shelter</a></li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-item-link" href="#">Our pets</a></li>
+                        <a class="burger-menu-item-link" href="../pets/index.html">Our pets</a></li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-item-link burger-menu-item-link-disbled" href="#">Help the shelter</a></li>
+                        <a class="burger-menu-item-link burger-menu-item-link-disbled" href="" disabled="disabled">Help the shelter</a></li>
                     <li class="burger-menu-item">
-                        <a class="burger-menu-item-link burger-menu-item-link-disbled" href="#">Contacts</a></li>
+                        <a class="burger-menu-item-link burger-menu-item-link-disbled" href="" disabled="disabled">Contacts</a></li>
                 </ul>
             </nav>            
         </div>
-
+        
     </body>
 </html>
