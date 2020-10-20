@@ -325,7 +325,7 @@ h4.disabled {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: var(--color-light-xl);    
+    background-color: transparent;    
 
     font-weight: normal;
     font-size: 17px;
