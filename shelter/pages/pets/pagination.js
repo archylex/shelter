@@ -2,7 +2,9 @@ class Pagination {
     props = {
         pageNumber: 1,
         totalPages: 6,
+        numItems: 8,
         pages: null,
+        pageDOM: null,
         nextBtn: null,
         prevBtn: null,
         curruntBtn: null,
@@ -10,9 +12,10 @@ class Pagination {
         endBtn: null
     }
 
-    constructor() {        
+    constructor(numPages = 6, numItems = 8) {        
         const buttons = document.querySelectorAll('.friends-slider-button');
-        const pages = new Pages(6);
+        const pages = new Pages(numPages, numItems);
+        this.props.pageDOM = document.querySelector('.friends-page');
         this.props.nextBtn = buttons[3];
         this.props.prevBtn = buttons[1];
         this.props.startBtn = buttons[0];
@@ -23,6 +26,15 @@ class Pagination {
         this.setListeners();        
     }
 
+    setProps(numPages, numItems) {
+        const pages = new Pages(numPages, numItems);
+        this.props.pages = pages.getPages();        
+        this.props.pageNumber = 1;
+        this.props.totalPages = numPages;        
+        this.props.numItems = numItems;
+        this.props.prevBtn.click();
+    }
+
     setListeners() {
         const that = this;
 
@@ -31,61 +43,80 @@ class Pagination {
             that.props.currentBtn.firstElementChild.textContent = that.props.pageNumber;
                         
             if (that.props.prevBtn.disabled) {
-                that.props.prevBtn.disabled = false;
-                that.props.prevBtn.firstElementChild.classList.remove('disabled');
-
-                that.props.startBtn.disabled = false;
-                that.props.startBtn.firstElementChild.classList.remove('disabled');
+                that.enableButton(that.props.prevBtn);
+                that.enableButton(that.props.startBtn);
             }
             
             if (that.props.pageNumber === that.props.totalPages) {
-                that.props.nextBtn.disabled = true;
-                that.props.nextBtn.firstElementChild.classList.add('disabled');
-                
-                that.props.endBtn.disabled = true;
-                that.props.endBtn.firstElementChild.classList.add('disabled');
+                that.disableButton(that.props.nextBtn);
+                that.disableButton(that.props.endBtn);                
             }
 
-            this.updatePage();
-        })
+            this.updatePage();            
+        });
 
         this.props.prevBtn.addEventListener('click', e => {
             that.props.pageNumber = that.props.pageNumber - 1 > 1 ? that.props.pageNumber - 1 : 1;
             that.props.currentBtn.firstElementChild.textContent = that.props.pageNumber;
                         
             if (that.props.nextBtn.disabled) {
-                that.props.nextBtn.disabled = false;
-                that.props.nextBtn.firstElementChild.classList.remove('disabled');
-
-                that.props.endBtn.disabled = false;
-                that.props.endBtn.firstElementChild.classList.remove('disabled');
+                that.enableButton(that.props.nextBtn);
+                that.enableButton(that.props.endBtn);
             }
             
             if (that.props.pageNumber === 1) {
-                that.props.prevBtn.disabled = true;
-                that.props.prevBtn.firstElementChild.classList.add('disabled');
-
-                that.props.startBtn.disabled = true;
-                that.props.startBtn.firstElementChild.classList.add('disabled');
+                that.disableButton(that.props.prevBtn);
+                that.disableButton(that.props.startBtn);
             }
 
             this.updatePage();
-        })
+        });
+
+        this.props.startBtn.addEventListener('click', () => {
+            that.props.pageNumber = 1;
+            that.props.prevBtn.click();
+        });
+
+        this.props.endBtn.addEventListener('click', () => {
+            that.props.pageNumber = that.props.totalPages;
+            that.props.nextBtn.click();
+        });
+    }
+
+    disableButton(btn) {
+        btn.disabled = true;
+        btn.firstElementChild.classList.add('disabled');        
+    }
+
+    enableButton(btn) {
+        btn.disabled = false;
+        btn.firstElementChild.classList.remove('disabled');        
     }
 
     updatePage() {
-        const photos = document.querySelectorAll('.slder-card');
-        const titles = document.querySelectorAll('.pets-card-title');
-        const that = this;
+        this.hidePage();
 
-        photos.forEach((photo, idx) => {
-            photo.setAttribute('src', that.props.pages[that.props.pageNumber - 1][idx].img);
-        });
+        setTimeout(() => {
+            const photos = [...document.querySelectorAll('.slder-card')].splice(0, this.props.numItems);
+            const titles = [...document.querySelectorAll('.pets-card-title')].splice(0, this.props.numItems);
 
-        titles.forEach((title, idx) => {
-            title.textContent = that.props.pages[that.props.pageNumber - 1][idx].name;
-        });
+            photos.forEach((photo, idx) => {
+                photo.setAttribute('src', this.props.pages[this.props.pageNumber - 1][idx].img);
+            });
+
+            titles.forEach((title, idx) => {
+                title.textContent = this.props.pages[this.props.pageNumber - 1][idx].name;
+            });
+
+            this.showPage()
+        }, 888);
+    }
+
+    hidePage() {
+        this.props.pageDOM.classList.add('hide_page');
+    }
+
+    showPage() {        
+        this.props.pageDOM.classList.remove('hide_page');
     }
 }
-
-const pag = new Pagination();

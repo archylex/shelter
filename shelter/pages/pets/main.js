@@ -1,29 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {        
+const pag = new Pagination();
+
+let media1280 = window.matchMedia("(min-width: 1280px)");
+let media768 = window.matchMedia("(max-width: 1279px)");
+let media320 = window.matchMedia("(max-width: 767px)");
+
+function updateMedia() {
+    if (media1280.matches) 
+        pag.setProps(6, 8);           
+
+    if (media768.matches) 
+        pag.setProps(8, 8);            
+
+    if (media320.matches) 
+        pag.setProps(16, 8);            
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    updateMedia();
+
+    /***********************/
     let json;    
     const url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';        
         
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            json = data;
-            
-            const sliderClassInfo = {
-                frame: '.carousel',
-                current: '.current_slide',
-            }
-
-            const carousel = new Carousel(sliderClassInfo, data);
-            const sliderBtn = document.querySelectorAll('.friends-slider-button');
-            
-            sliderBtn[1].addEventListener('click', () => {
-                carousel.moveToNext();
-                updateCardListener()
-            });
-
-            sliderBtn[0].addEventListener('click', () => {
-                carousel.moveToPrev();
-                updateCardListener();
-            });
+            json = data;            
         })
         .catch(err => { throw err });
     
@@ -88,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     burgerScreen.addEventListener('click', e => {
-        if ( e.target.href !== undefined) {
-            if (e.target.href.includes('/index.html#') && e.target.href !== 'javascript: void(0)')
+        if ( e.target.href !== undefined) {            
+            if (e.target.href.includes('/index.html#') && e.target.href !== 'javascript: void(0)') 
                 hideBurger();
         }
     });
@@ -110,4 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+
+    document.querySelector('.header-logo')
+        .addEventListener('click', () => window.location.href = '../main/index.html')
+});
+
+window.addEventListener('resize', () => {
+    updateMedia();
 });
