@@ -87,7 +87,6 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 30px;  
-    margin-top: 10px;
     margin-left: 41px;
 }
 
@@ -408,7 +407,7 @@ img {
     height: 52px;
     border: 2px solid var(--color-primary);
     border-radius: 100px;
-    background-color: var(--color-light-xl);    
+    background-color: transparent;    
 }
 
 .friends-slider-button:hover {
@@ -439,7 +438,7 @@ img {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: var(--color-light-xl);    
+    background-color: transparent;    
 
     font-weight: normal;
     font-size: 17px;
@@ -483,7 +482,7 @@ img {
     justify-content: center;
     width: 100%;
     margin-top: 80px;
-    margin-bottom: 94px;
+    margin-bottom: 97px;
     flex-direction: column;
     align-items: center;
 }
@@ -580,6 +579,11 @@ img {
     background: var(--color-primary);
 }
 
+.donation-telephone:hover {
+    background: var(--color-primary-light);
+    cursor: url(../../assets/icons/cursor-hover.svg), auto;
+}
+
 .donation-title {
     width: 300px
 }
@@ -600,7 +604,7 @@ img {
 .donation-description {
     width: 380px;
     margin-top: 20px;
-    margin-bottom: 101px;
+    margin-bottom: 99px;
     font-family: var(--font-a);
     font-style: italic;
     font-weight: normal;
@@ -666,7 +670,7 @@ img {
 .footer-info-block {
     display: flex;
     flex-direction: column;
-    margin-top: 60px;
+    margin-top: 57px;
 }
 
 .footer-info-block2 {
@@ -676,7 +680,13 @@ img {
 .footer-info-block-item {
     display: flex;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 38px;
+}
+
+.footer-info-block-item-telephone {
+    display: flex;
+    align-items: center;
+    margin-top: 34px;
 }
 
 .footer-info-block-item2 {
@@ -701,6 +711,8 @@ img {
 }
 
 .footer-block-text {    
+    display: flex;
+    align-items: center;
     width: 302px;
     color: var(--color-primary);
 }
@@ -777,7 +789,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 351px;
-    margin-top: 50px;
+    margin-top: 51px;
     margin-left: 29px;
 }
 
@@ -810,7 +822,7 @@ img {
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
-    line-height: 110%;
+    line-height: 116%;
     letter-spacing: 0.06em;
     color: black;
 }
@@ -824,7 +836,7 @@ ul.popup-list li {
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
-    line-height: 110%;
+    line-height: 120%;
     letter-spacing: 0.06em;
     margin-bottom: 10px;
     color: black;
@@ -845,12 +857,15 @@ ul.popup-list li::before {
 
 .popup-button {
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 52px;
     height: 52px;
     border-radius: 26px;
     border: 2px solid var(--color-primary);    
     top: -52px;
-    right: -52px;
+    right: -42px;
     background-color: rgba(13, 13, 13, 0);
 }
 
@@ -1064,10 +1079,16 @@ h5 {
         top: 0;
     }
 
+    .footer-info-block-item-telephone {
+        position: relative;
+        width: auto;
+        top:7px;
+    }
+
     .footer-info-block-item2 {
         width: auto;
         top: 0;
-        margin-top: 33px;
+        margin-top: 30px;
     }
 
     .footer-info-block-item3 {
@@ -1098,9 +1119,18 @@ h5 {
         height: 350px;
     }
  
+    .popup-button {
+        right: -43px;
+    }
+
     .popup-image {
         width: 350px;
         height: 350px;    
+    }
+
+    .popup-image img{
+        width: 350px;
+        height: 350px;   
     }
     
     .popup-info {
@@ -1109,16 +1139,21 @@ h5 {
     }    
    
     .popup-pet-description {
-        width: 260px;
+        width: 261px;
         margin-top: 20px;
         margin-bottom: 20px;
         font-size: 13px;
+        font-size: 13px;
+        font-family: var(--font-g);
+        line-height: 110%;
+        text-align: left;
+        letter-spacing: 0.06em;
     }
     
     ul.popup-list li {
         font-size: 15px;
         line-height: 110%;
-        margin-bottom: 5px;
+        margin-bottom: 7px;
     }
 }
 
@@ -1141,7 +1176,7 @@ h5 {
     }
 
     .hero-content {
-        padding-top: 90px;
+        padding-top: 100px;
         align-items: center;
     }
 
@@ -1186,6 +1221,7 @@ h5 {
     .about-content {
         width: 100%;
         margin-left: 0;
+        margin-top: 14px;
         align-items: center;
     }
 
@@ -1316,7 +1352,7 @@ h5 {
     }
 
     .donation-title {
-        width: 80%;
+        width: 70%;
         font-family: var(--font-g);
         font-style: normal;
         font-weight: normal;
@@ -1329,20 +1365,21 @@ h5 {
     }
 
     .donation-subtitle {        
+        text-align: center;
         width: 100%;
-        font-family: var(--font-a);
+        font-family: var(--font-g);
         font-style: normal;
         font-weight: normal;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 160%;
-        letter-spacing: 0.01em;         
+        letter-spacing: 0.03em;         
     }
 
     .donation-telephone {
         width: 281px;
         height: 43px;
     }
-
+    
     h4.phone, a.card_link {
         font-family: var(--font-g);
         font-style: normal;
@@ -1364,13 +1401,13 @@ h5 {
         display: flex;
         align-items: center;
         text-align: justify;
-        margin-bottom: 40px;
+        margin-bottom: 43px;
     }
 
     .donation-image {
         width: 260px;
         height: 135px;
-        margin-bottom: 42px ;
+        margin-bottom: 41px;
     }
     
     .footer-info {
@@ -1396,7 +1433,7 @@ h5 {
         display: flex;
         flex-direction: column;
         width: 278px;
-        margin-top: 31px;
+        margin-top: 32px;
         align-items: center;
         justify-content: center;
     }
@@ -1409,7 +1446,7 @@ h5 {
         left: 0px;
         top: 0px;
         margin-left: 0;
-        margin-top: 40px;
+        margin-top: 48px;
         align-items: center;
     }
 
@@ -1423,19 +1460,21 @@ h5 {
         letter-spacing: 0.06em;
     }
 
-    .footer-info-block-item {
+    .footer-info-block-item {        
         width: auto;
-        top: 0;
+        top: 0px;
     }
 
     .footer-info-block-item2 {
+        position: relative;
         width: auto;
-        top: 0;
+        top: 10px;
     }
 
     .footer-info-block-item3 {
+        position: relative;
         width: auto;
-        margin-top: 40px;        
+        margin-top: 48px;        
         align-self: start;
     }
     
@@ -1450,6 +1489,7 @@ h5 {
     }
 
     .footer-image {
+        margin-top: 40px;
         width: 260px;
         height: 269px;
     }
@@ -1458,6 +1498,10 @@ h5 {
         width: 240px;
         /*height: 341px;*/
         height: auto;
+    }
+
+    .popup-button {
+        right: -30px;
     }
  
     .popup-image {
@@ -1482,6 +1526,35 @@ h5 {
         margin-top: 20px;
         margin-bottom: 24px;
         font-size: 13px;
+        font-family: var(--font-g);
+        line-height: 110%;
+        text-align: justify;
+        letter-spacing: 0.06em;
+    }
+
+    .popup-list {
+        font-family: var(--font-g);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 110%;
+        text-align: justify;
+        letter-spacing: 0.06em;
+        color: #000000;
+        white-space: pre-wrap;
+    }
+
+    ul.popup-list li {
+        font-family: var(--font-g);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 120%;
+        text-align: justify;
+        letter-spacing: 0.06em;
+        margin-top: 0px;
+        color: #000000;
+        white-space: pre-wrap; 
     }
 
     .burger-tint-screen {
