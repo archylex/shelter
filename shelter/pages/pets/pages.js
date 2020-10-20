@@ -1,8 +1,9 @@
 class Pages {
-    constructor(totalPages = 6) {
+    constructor(totalPages = 6, numItems = 8) {
         this.url = 'https://archylex.github.io/shelter/shelter/assets/data/pets.json';     
         this.dataPages = [];    
         this.totalPages = totalPages;
+        this.numItems = numItems;
         this.getData();
     }
 
@@ -12,15 +13,32 @@ class Pages {
             .then(res => res.json())
             .then(data => {
                 const pets = Object.values(data); 
-                for (let i = 0; i < that.totalPages; i++) {
-                    that.dataPages.push(that.shuffle(Object.assign([], pets)));
-            }            
+                let shuffleArray = that.shuffle(Object.assign([], pets));
+                let items = [];
+                
+                for (let i = 0; i < that.totalPages * that.numItems; i++) {
+                    const idx = i % shuffleArray.length;
+
+                    if (idx === 0)
+                        shuffleArray = that.shuffle(Object.assign([], pets));
+
+                    items.push(shuffleArray[idx])
+                    
+                    if ((i + 1) % that.numItems === 0) {
+                        that.dataPages.push(items);
+                        items = []
+                    }
+                        
+                }  
+
+                that.dataPages[0] = [pets[4], pets[0], pets[2], pets[1], pets[5], pets[7], pets[3], pets[6]];
         })
         .catch(err => { throw err });
     }
-
-    setTotalPages(n) {
-        this.totalPages = n;
+    
+    setPages(numPages, numItems) {
+        this.totalPages = numPages;
+        this.numItems = numItems;
         this.dataPages = [];
         this.getData();
     }
@@ -33,6 +51,3 @@ class Pages {
         return array.sort(() => Math.random() - 0.5);
     }
 }
-
-const p = new Pages(6);
-console.log(p.getPages())

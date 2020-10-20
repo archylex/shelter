@@ -1607,12 +1607,10 @@ h5 {
     .burger-menu-item-link-disbled {
         color: var(--color-dark-s);
         cursor: url(../../assets/icons/cursor-inactive.svg), auto;
-        pointer-events: none;
     }
     
     .burger-menu-item-link-disbled:hover {
         color: var(--color-dark-s);
         cursor: url(../../assets/icons/cursor-inactive.svg), auto;
-        pointer-events: none;
     }
 }
