@@ -77,7 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         burgerTintScreen.classList.add('tint-screen-active');
         burgerScreen.classList.add('burger-show'); 
         burgers[0].classList.add('burger-icon-rotate');           
-        burgers[1].classList.add('burger-icon-rotate');          
+        burgers[1].classList.add('burger-icon-rotate');    
+        disableScroll();
     }
 
     const hideBurger = () => {
@@ -85,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         burgerScreen.classList.remove('burger-show');   
         burgers[0].classList.remove('burger-icon-rotate');       
         burgers[1].classList.remove('burger-icon-rotate');       
+        enableScroll();
     }
 
     burgerScreen.addEventListener('click', e => {

@@ -98,7 +98,7 @@ class PopUp {
         const me = document.querySelector('.popup');        
         parent.classList.remove('popup-hidden');
         me.classList.remove('popup-scale');
-        document.body.style.overflow = 'hidden';
+        disableScroll();
     }
 
     hide() {
@@ -106,7 +106,7 @@ class PopUp {
         const me = document.querySelector('.popup');
         parent.classList.add('popup-hidden');
         me.classList.add('popup-scale');
-        document.body.style.overflow = '';
+        enableScroll();
     }
 
     lightButton() {
