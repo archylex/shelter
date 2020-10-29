@@ -4,9 +4,12 @@ class Carousel {
     all: null, // all nodes of slides
     num: 0, // number of current slide
     isMoving: false, // animation
-    info: null // info from json
+    info: null, // info from json
+    last: [4, 0, 2]
   }
 
+  isStart = true;
+  
   createSlide(current) {
     const newSlide = current.cloneNode(true);
 
@@ -19,16 +22,21 @@ class Carousel {
     for (let i = 0; i < 3; i++) {
       const cardImg = slide.children[i].children[0].children[0];    
       const cardTitle = slide.children[i].children[1];    
+      const arr = [...nums];
+      arr.push(...this.slide.last);
+      
       let idx = Math.floor(Math.random() * this.slide.info.length);
       
-      while (nums.indexOf(idx) !== -1)
+      while (arr.indexOf(idx) !== -1)
         idx = Math.floor(Math.random() * this.slide.info.length);
       
       nums.push(idx);
 
       cardImg.setAttribute('src', this.slide.info[idx].img);
       cardTitle.textContent = this.slide.info[idx].name;
-    }    
+    } 
+    if (!this.isStart)
+        this.slide.last = [...nums];
   }
 
   finishTransition() {
@@ -48,6 +56,8 @@ class Carousel {
     
     for (let i = 0; i < 2; i++)
       this.createSlide(current);
+    
+    this.isStart = false;
 
     this.slide.all = document.querySelectorAll(classInfo.current);
     this.slide.all[this.slide.all.length - 1].classList.add('prev');
